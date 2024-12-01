@@ -1,13 +1,11 @@
 package com.petshop.mapo.controller;
 
 import com.petshop.mapo.model.CompraModel;
-import com.petshop.mapo.model.DetalleVentaModel;
-import com.petshop.mapo.model.GarantiaModel;
-import com.petshop.mapo.model.PersonaModel;
+import com.petshop.mapo.model.ProductosComprasModel;
+import com.petshop.mapo.model.ProductosProveedoresModel;
 import com.petshop.mapo.service.CompraServicio;
-import com.petshop.mapo.service.DetalleVentaServicio;
-import com.petshop.mapo.service.GarantiaServicio;
-import com.petshop.mapo.service.PersonaServicio;
+import com.petshop.mapo.service.ProductoCompraServicio;
+import com.petshop.mapo.service.ProductoProveedorServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,23 +13,23 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/persona")
-public class PersonaController {
+@RequestMapping("/productosProveedor")
+public class ProductosProveedorController {
     @Autowired
-    private PersonaServicio s;
+    private ProductoProveedorServicio s;
 
     @GetMapping
-    public List<PersonaModel> getAll(){
+    public List<ProductosProveedoresModel> getAll(){
         return s.getList();
     }
 
     @GetMapping("/{id}")
-    public Optional<PersonaModel> getByID(@PathVariable("id") Long id){
+    public Optional<ProductosProveedoresModel> getByID(@PathVariable("id") Long id){
         return s.get(id);
     }
 
     @PostMapping
-    public PersonaModel saveOrUpdate(@RequestBody PersonaModel ob){
+    public ProductosProveedoresModel saveOrUpdate(@RequestBody ProductosProveedoresModel ob){
         s.saveOrUpdate(ob);
         return ob;
     }

@@ -24,6 +24,8 @@ public class ProductosModel {
     private double precioVenta;
     private String descripcion;
     private int cantidad;
+    @Enumerated(EnumType.STRING)
+    private CategoriaProducto categoria;
 
     @OneToMany(mappedBy = "productosModel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<GarantiaModel> garantiaModelList;
@@ -42,13 +44,11 @@ public class ProductosModel {
     @JoinColumn(name = "venta_id")
     private VentaModel ventaModel;
 
-    public ProductosModel(ProductoResgistrarDTO productoResgistrarDTO){
-        this.nombre = productoResgistrarDTO.nombre();
-        this.precioCosto =  productoResgistrarDTO.precioCosto();
-        this.precioVenta =  productoResgistrarDTO.precioVenta();
-        this.descripcion =  productoResgistrarDTO.descripcion();
-        this.cantidad =  productoResgistrarDTO.cantidad();
+    public enum CategoriaProducto {
+        FOOD,
+        TOYS,
+        ACCESSORIES,
+        MEDICINE,
     }
-
 
 }

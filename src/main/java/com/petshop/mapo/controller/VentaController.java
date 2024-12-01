@@ -1,9 +1,7 @@
 package com.petshop.mapo.controller;
 
-import com.petshop.mapo.model.CompraModel;
-import com.petshop.mapo.model.DetalleVentaModel;
-import com.petshop.mapo.service.CompraServicio;
-import com.petshop.mapo.service.DetalleVentaServicio;
+import com.petshop.mapo.model.VentaModel;
+import com.petshop.mapo.service.VentaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,23 +9,23 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/detalleVenta")
-public class DetalleVentaController {
+    @RequestMapping("/venta")
+public class VentaController {
     @Autowired
-    private DetalleVentaServicio s;
+    private VentaServicio s;
 
     @GetMapping
-    public List<DetalleVentaModel> getAll(){
+    public List<VentaModel> getAll(){
         return s.getList();
     }
 
     @GetMapping("/{id}")
-    public Optional<DetalleVentaModel> getByID(@PathVariable("id") Long id){
+    public Optional<VentaModel> getByID(@PathVariable("id") Long id){
         return s.get(id);
     }
 
     @PostMapping
-    public DetalleVentaModel saveOrUpdate(@RequestBody DetalleVentaModel ob){
+    public VentaModel saveOrUpdate(@RequestBody VentaModel ob){
         s.saveOrUpdate(ob);
         return ob;
     }

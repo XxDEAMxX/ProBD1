@@ -1,7 +1,11 @@
 package com.petshop.mapo.controller;
 
 import com.petshop.mapo.model.CompraModel;
+import com.petshop.mapo.model.PersonaModel;
+import com.petshop.mapo.model.ProductosComprasModel;
 import com.petshop.mapo.service.CompraServicio;
+import com.petshop.mapo.service.PersonaServicio;
+import com.petshop.mapo.service.ProductoCompraServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,30 +13,30 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/productosCompras")
 public class ProductosComprasController {
     @Autowired
-    private CompraServicio compraServicio;
+    private ProductoCompraServicio s;
 
     @GetMapping
-    public List<CompraModel> getAll(){
-        return compraServicio.getList();
+    public List<ProductosComprasModel> getAll(){
+        return s.getList();
     }
 
     @GetMapping("/{id}")
-    public Optional<CompraModel> getByID(@PathVariable("id") Long id){
-        return compraServicio.get(id);
+    public Optional<ProductosComprasModel> getByID(@PathVariable("id") Long id){
+        return s.get(id);
     }
 
     @PostMapping
-    public CompraModel saveOrUpdate(@RequestBody CompraModel compraModel){
-        compraServicio.saveOrUpdate(compraModel);
-        return compraModel;
+    public ProductosComprasModel saveOrUpdate(@RequestBody ProductosComprasModel ob){
+        s.saveOrUpdate(ob);
+        return ob;
     }
 
     @DeleteMapping("/{id}")
     public boolean saveOrUpdate(@PathVariable("id") Long id){
-        compraServicio.delete(id);
+        s.delete(id);
         return true;
     }
 }

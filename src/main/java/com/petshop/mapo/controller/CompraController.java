@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/productos")
+@RequestMapping("/compras")
 public class CompraController {
     @Autowired
     private CompraServicio compraServicio;

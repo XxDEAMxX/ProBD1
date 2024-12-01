@@ -1,15 +1,9 @@
 package com.petshop.mapo.controller;
 
-import com.petshop.mapo.dto.ProductoResgistrarDTO;
-import com.petshop.mapo.dto.ProductosResponseDTO;
 import com.petshop.mapo.model.ProductosModel;
 import com.petshop.mapo.service.ProductoServicio;
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 import java.util.Optional;

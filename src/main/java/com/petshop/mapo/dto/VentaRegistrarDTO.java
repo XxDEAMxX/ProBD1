@@ -14,8 +14,7 @@ public record VentaRegistrarDTO(
         VentaModel.EstadoVentaEnum estado,
         Long cliente_id,
         Long empleado_id,
-        List<DetalleVentaRegistarDTO> detalleVentaModelList,
-        List<GarantiaDTO> garantiaModelList
+        List<DetalleVentaRegistarDTO> detalleVentaModelList
 ) {
 
 }

@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Table(name = "garantiaModel")
 @Entity
 @Getter
@@ -18,7 +20,7 @@ public class GarantiaModel {
     private Long id;
     private String nombre;
     private String descripcion;
-    private int fechaEntregaCliente;
+    private LocalDate fechaEntregaCliente;
 
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -28,4 +30,12 @@ public class GarantiaModel {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "venta_id")
     private VentaModel ventaModel;
+
+    public GarantiaModel(String nombre, String descripcion, LocalDate fechaEntregaCliente, ProductosModel productosModel, VentaModel ventaModel) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaEntregaCliente = fechaEntregaCliente;
+        this.productosModel = productosModel;
+        this.ventaModel = ventaModel;
+    }
 }

@@ -33,4 +33,12 @@ public class DetalleVentaModel {
     @MapsId("ventaId")
     @JoinColumn(name = "venta_id")
     private VentaModel ventaModel;
+
+    public DetalleVentaModel(int cantidad, double precioUnitario, ProductosModel productosModel, VentaModel ventaModel) {
+        this.id = new DetalleVentaId(ventaModel.getId(), productosModel.getId());
+        this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
+        this.productosModel = productosModel;
+        this.ventaModel = ventaModel;
+    }
 }

@@ -1,50 +1,40 @@
 package com.petshop.mapo.model.detalleVenta;
 
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.*;
+import lombok.*;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class DetalleVentaId implements Serializable {
 
+    @Column(name = "venta_id")
     private Long ventaId;
+
+    @Column(name = "producto_id")
     private Long productoId;
-
-    public DetalleVentaId() {}
-
-    public DetalleVentaId(Long ventaId, Long productoId) {
-        this.ventaId = ventaId;
-        this.productoId = productoId;
-    }
-
-    public Long getVentaId() {
-        return ventaId;
-    }
-
-    public void setVentaId(Long ventaId) {
-        this.ventaId = ventaId;
-    }
-
-    public Long getProductoId() {
-        return productoId;
-    }
-
-    public void setProductoId(Long productoId) {
-        this.productoId = productoId;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         DetalleVentaId that = (DetalleVentaId) o;
-        return Objects.equals(ventaId, that.ventaId) &&
-                Objects.equals(productoId, that.productoId);
+
+        if (!Objects.equals(ventaId, that.ventaId)) return false;
+        return Objects.equals(productoId, that.productoId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ventaId, productoId);
+        int result = ventaId != null ? ventaId.hashCode() : 0;
+        result = 31 * result + (productoId != null ? productoId.hashCode() : 0);
+        return result;
     }
 }
 

@@ -25,17 +25,19 @@ public class PersonaModel {
     private Long id;
 
     @Column(name = "nombre_persona", nullable = false, length = 50)
-    @NotNull
+    @NotNull(message = "Nombre must not be null")
     private String nombre;
 
     @Column(name = "apellido_persona", nullable = false, length = 50)
-    @NotNull
+    @NotNull(message = "Apellido must not be null")
     private String apellido;
 
     @Column(name = "telefono_persona", length = 20)
+    @NotNull(message = "Telefono must not be null")
     private String telefono;
 
     @Column(name = "email_persona", length = 50, unique = true)
+    @NotNull(message = "Email must not be null")
     private String email;
 
     @Column(name = "direccion_persona", length = 100)

@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "detalleVentaModel")
+@Table(name = "detalleVenta")
 @Entity
 @Getter
 @Setter

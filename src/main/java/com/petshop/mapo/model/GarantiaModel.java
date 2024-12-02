@@ -11,7 +11,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-@Table(name = "garantiaModel")
+@Table(name = "garantia")
 @Entity
 @Getter
 @Setter
@@ -33,7 +33,6 @@ public class GarantiaModel {
     private String descripcion;
 
     @Column(name = "fecha_entrega_cliente", nullable = false)
-    @Min(value = 0, message = "Fecha de entrega cliente must be non-negative") // Ensure non-negative values
     private LocalDate fechaEntregaCliente;
 
 

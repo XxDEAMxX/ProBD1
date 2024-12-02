@@ -11,7 +11,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
 
-@Table(name = "compraModel")
+@Table(name = "compras")
 @Entity
 @Getter
 @Setter

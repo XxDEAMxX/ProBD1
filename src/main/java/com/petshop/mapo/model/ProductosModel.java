@@ -14,7 +14,7 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Table(name = "productosModel")
+@Table(name = "productos")
 @Entity
 @Getter
 @Setter

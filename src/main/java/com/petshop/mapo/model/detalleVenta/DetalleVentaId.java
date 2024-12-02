@@ -37,3 +37,4 @@ public class DetalleVentaId implements Serializable {
         return result;
     }
 }
+

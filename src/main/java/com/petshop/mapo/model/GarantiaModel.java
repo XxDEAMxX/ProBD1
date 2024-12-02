@@ -46,4 +46,12 @@ public class GarantiaModel {
     @JoinColumn(name = "venta_id")
     @NotNull(message = "Venta must not be null")
     private VentaModel ventaModel;
+
+    public GarantiaModel(String nombre, String descripcion, LocalDate fechaEntregaCliente, ProductosModel productosModel, VentaModel ventaModel) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fechaEntregaCliente = fechaEntregaCliente;
+        this.productosModel = productosModel;
+        this.ventaModel = ventaModel;
+    }
 }

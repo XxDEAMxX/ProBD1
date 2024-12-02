@@ -43,4 +43,12 @@ public class DetalleVentaModel {
     @JoinColumn(name = "venta_id")
     @NotNull(message = "Producto must not be null")
     private VentaModel ventaModel;
+
+    public DetalleVentaModel(int cantidad, double precioUnitario, ProductosModel productosModel, VentaModel ventaModel) {
+        this.id = new DetalleVentaId(ventaModel.getId(), productosModel.getId());
+        this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
+        this.productosModel = productosModel;
+        this.ventaModel = ventaModel;
+    }
 }

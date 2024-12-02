@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Table(name = "garantiaModel")
 @Entity
 @Getter
@@ -32,7 +34,7 @@ public class GarantiaModel {
 
     @Column(name = "fecha_entrega_cliente", nullable = false)
     @Min(value = 0, message = "Fecha de entrega cliente must be non-negative") // Ensure non-negative values
-    private int fechaEntregaCliente;
+    private LocalDate fechaEntregaCliente;
 
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

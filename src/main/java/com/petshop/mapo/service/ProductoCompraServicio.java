@@ -1,11 +1,7 @@
 package com.petshop.mapo.service;
 
-import com.petshop.mapo.model.PersonaModel;
-import com.petshop.mapo.model.ProductosComprasModel;
-import com.petshop.mapo.model.ProductosModel;
-import com.petshop.mapo.repository.PersonaRepositorio;
+import com.petshop.mapo.model.productosCompras.ProductosComprasModel;
 import com.petshop.mapo.repository.ProductoCompraRepositorio;
-import com.petshop.mapo.repository.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

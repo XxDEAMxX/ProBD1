@@ -1,5 +1,6 @@
 package com.petshop.mapo.model;
 
+import com.petshop.mapo.model.productosCompras.ProductosComprasModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

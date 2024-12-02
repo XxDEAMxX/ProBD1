@@ -1,6 +1,9 @@
-package com.petshop.mapo.model;
+package com.petshop.mapo.model.detalleVenta;
 
+import com.petshop.mapo.model.ProductosModel;
+import com.petshop.mapo.model.VentaModel;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,17 +16,21 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DetalleVentaModel {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @EmbeddedId
+    private DetalleVentaId id;
+
+    @Column(name = "cantidad_detalle_venta", nullable = false)
+    @Min(1) // Ensures cantidad_detalle_venta > 0
     private int cantidad;
     private Double precioUnitario;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @MapsId("productoId")
     @JoinColumn(name = "producto_id")
     private ProductosModel productosModel;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @MapsId("ventaId")
     @JoinColumn(name = "venta_id")
     private VentaModel ventaModel;
 }

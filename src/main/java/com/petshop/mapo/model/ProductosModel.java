@@ -1,6 +1,8 @@
 package com.petshop.mapo.model;
 
-import com.petshop.mapo.dto.ProductoResgistrarDTO;
+import com.petshop.mapo.model.productosCompras.ProductosComprasModel;
+import com.petshop.mapo.model.detalleVenta.DetalleVentaModel;
+import com.petshop.mapo.model.productosProveedores.ProductosProveedoresModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,9 +42,6 @@ public class ProductosModel {
     @OneToMany(mappedBy = "productosModel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<DetalleVentaModel> detalleVentaModelList;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "venta_id")
-    private VentaModel ventaModel;
 
     public enum CategoriaProducto {
         FOOD,

@@ -1,5 +1,6 @@
 package com.petshop.mapo.model;
 
+import com.petshop.mapo.model.detalleVenta.DetalleVentaModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -55,9 +56,6 @@ public class VentaModel {
 
     @OneToMany(mappedBy = "ventaModel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<GarantiaModel> garantiaModelList;
-
-    @OneToMany(mappedBy = "ventaModel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<ProductosModel> productosModelList;
 
     public enum EstadoVentaEnum {
         PENDIENTE,

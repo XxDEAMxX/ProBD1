@@ -1,8 +1,6 @@
 package com.petshop.mapo.controller;
 
-import com.petshop.mapo.model.CompraModel;
-import com.petshop.mapo.model.DetalleVentaModel;
-import com.petshop.mapo.service.CompraServicio;
+import com.petshop.mapo.model.detalleVenta.DetalleVentaModel;
 import com.petshop.mapo.service.DetalleVentaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

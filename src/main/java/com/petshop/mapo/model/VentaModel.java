@@ -26,18 +26,21 @@ public class VentaModel {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "metodo_pago", nullable = false)
+    @NotNull(message = "Metodo de pago must not be null")
     private MetodoPagoEnum metodoPago;
 
     @Column(name = "fecha_venta", nullable = false)
-    @NotNull
+    @NotNull(message = "Fecha must not be null")
     private LocalDate fecha;
 
     @Column(name = "total_venta", nullable = false)
-    @Min(0) // Ensures total_venta is non-negative at the application level
+    @NotNull(message = "Total must not be null")
+    @Min(value = 0, message = "Total must be non-negative")
     private Double total;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "estado_venta", nullable = false)
+    @NotNull(message = "Estado de venta must not be null")
     private EstadoVentaEnum estado;
 
     // Foreign key to PERSONAS (cliente)

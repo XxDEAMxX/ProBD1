@@ -1,5 +1,6 @@
 package com.petshop.mapo.controller;
 
+import com.petshop.mapo.dto.VentaRegistrarDTO;
 import com.petshop.mapo.model.VentaModel;
 import com.petshop.mapo.service.VentaServicio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class VentaController {
     }
 
     @PostMapping
-    public VentaModel saveOrUpdate(@RequestBody VentaModel ob){
+    public VentaRegistrarDTO saveOrUpdate(@RequestBody VentaRegistrarDTO ob){
         s.saveOrUpdate(ob);
         return ob;
     }

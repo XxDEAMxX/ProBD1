@@ -1,5 +1,6 @@
 package com.petshop.mapo.model;
 
+import com.petshop.mapo.dto.VentaRegistrarDTO;
 import com.petshop.mapo.model.detalleVenta.DetalleVentaModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -56,6 +57,13 @@ public class VentaModel {
 
     @OneToMany(mappedBy = "ventaModel", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<GarantiaModel> garantiaModelList;
+
+    public VentaModel(VentaRegistrarDTO ventaRegistrarDTO) {
+        this.metodoPago = ventaRegistrarDTO.metodoPago();
+        this.fecha = ventaRegistrarDTO.fecha();
+        this.total = ventaRegistrarDTO.total();
+        this.estado = ventaRegistrarDTO.estado();
+    }
 
     public enum EstadoVentaEnum {
         PENDIENTE,

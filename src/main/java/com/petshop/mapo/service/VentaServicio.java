@@ -1,8 +1,10 @@
 package com.petshop.mapo.service;
 
+import com.petshop.mapo.dto.VentaRegistrarDTO;
 import com.petshop.mapo.model.ProductosModel;
 import com.petshop.mapo.model.ProveedoresModel;
 import com.petshop.mapo.model.VentaModel;
+import com.petshop.mapo.repository.PersonaRepositorio;
 import com.petshop.mapo.repository.ProductoRepositorio;
 import com.petshop.mapo.repository.ProveedoresRepositorio;
 import com.petshop.mapo.repository.VentaRepositorio;
@@ -18,8 +20,23 @@ public class VentaServicio {
     @Autowired
     private VentaRepositorio r;
 
-    public void saveOrUpdate(VentaModel ob) {
-        r.save(ob);
+    @Autowired
+    private PersonaRepositorio personaRepositorio;
+
+    public void saveOrUpdate(VentaRegistrarDTO ventaRegistrarDTO) {
+        var cliente = personaRepositorio.findById(ventaRegistrarDTO.cliente_id());
+        var empleado = personaRepositorio.findById(ventaRegistrarDTO.empleado_id());
+
+        var venta = new VentaModel(ventaRegistrarDTO);
+
+//        venta.getGarantiaModelList().stream().map(garantiaDTO -> {
+//            var garantia = new GarantiaModel(garantiaDTO);
+//            garantia.setVentaModel(venta);
+//            return garantia;
+//        }).forEach(venta.getGarantiaModelList()::add);
+        venta.setCliente(cliente.get());
+        venta.setEmpleado(empleado.get());
+        r.save(venta);
     }
 
     public List<VentaModel> getList() {
